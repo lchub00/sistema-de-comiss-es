@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Comissões por Funcionário</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" type="image/png" href="img/chaveirologo.png">
+</head>
+<body>
+
+<div class="container">
+  <nav class="nav-bar">
+    <a href="index.html">📝 Lançar Comissão</a>
+    <a href="funcionarios.html" class="active">👥 Ver Comissões por Funcionário</a>
+    <a href="folgas.html">📅 Ver Escala de Folgas</a>
+  </nav>
+
+  <header>
+    <div class="logo-container">
+      <div class="logo-placeholder">
+        <img id="logoImg" style="display: none;" alt="Logo">
+      </div>
+    </div>
+    <h1>Relatório por Funcionário</h1>
+  </header>
+
+  <div class="card">
+    <h2>Selecione o Funcionário</h2>
+    <div class="form-group">
+      <select id="seletorFuncionario" onchange="exibirComissoesFuncionario()">
+        <option value="">-- Selecione um Funcionário --</option>
+      </select>
+    </div>
+  </div>
+
+  <div class="card" id="cardResultado" style="display: none;">
+    <h2 id="tituloFuncionario">Comissões</h2>
+    <div class="table-container">
+      <table>
+        <thead>
+          <tr>
+            <th>Data</th>
+            <th>Descrição</th>
+            <th>Valor do Serviço</th>
+            <th>Comissão (5%)</th>
+            <th>Ações</th>
+          </tr>
+        </thead>
+        <tbody id="tabelaServicosFuncionario">
+          <!-- Dados gerados via JavaScript -->
+        </tbody>
+      </table>
+    </div>
+
+    <div class="total-box">
+      <span>Total de Comissão Acumulada:</span>
+      <span id="totalComissaoFuncionario">R$ 0,00</span>
+    </div>
+
+    <div class="actions-bar" style="margin-top: 15px;">
+      <button class="btn-success" onclick="salvarEEmitirRelatorio()">💾 Baixar Relatório do Funcionário (.txt)</button>
+    </div>
+  </div>
+</div>
+
+<script src="script.js"></script>
+<script>
+  window.onload = function() {
+    carregarDadosLocal();
+    exibirLogo();
+    atualizarMenuFuncionarios();
+  };
+</script>
+</body>
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Escala de Folgas</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" type="image/png" href="img/chaveirologo.png">
+</head>
+<body>
+
+<div class="container">
+  <nav class="nav-bar">
+    <a href="index.html">📝 Lançar Comissão</a>
+    <a href="funcionarios.html">👥 Ver Comissões por Funcionário</a>
+    <a href="folgas.html" class="active">📅 Ver Escala de Folgas</a>
+  </nav>
+
+  <header>
+    <div class="logo-container">
+      <div class="logo-placeholder">
+        <img id="logoImg" style="display: none;" alt="Logo">
+      </div>
+    </div>
+    <h1>Agenda e Escala de Folgas</h1>
+  </header>
+
+  <div class="card">
+    <h2>Agendar Nova Folga</h2>
+    <div class="form-group">
+      <label for="folgaData">Data da Folga *</label>
+      <input type="date" id="folgaData">
+    </div>
+    <div class="form-group">
+      <label for="folgaPessoa">Nome do Colaborador *</label>
+      <input type="text" id="folgaPessoa" placeholder="Ex: Lucas, Rodrigo, Kleber, Jota, Maicon...">
+    </div>
+    <button type="button" class="btn-primary" onclick="adicionarFolga()">Marcar Folga</button>
+  </div>
+
+  <div class="card">
+    <h2>Folgas Agendadas</h2>
+    <div class="folgas-list" id="folgasLista">
+      <!-- Lista gerada via JS -->
+    </div>
+  </div>
+</div>
+
+<script src="script.js"></script>
+<script>
+  window.onload = function() {
+    carregarDadosLocal();
+    exibirLogo();
+    renderizarFolgas();
+  };
+</script>
+</body>
+</html>
